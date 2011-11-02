@@ -3,6 +3,6 @@ if [ -z "$PS1" ]; then
    return
 fi
 
-PS1='\h:\W \u\$ '
+PS1='\u@\h:\w \$ '
 # Make bash check its window size after a process completes
 shopt -s checkwinsize
