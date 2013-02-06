@@ -25,7 +25,6 @@ function git_pull () {
     popd
   else
     pushd $DIR_REPO > /dev/null
-    echo 'Pulling new files'
     git pull
     pull_result=$?
     popd
@@ -40,27 +39,29 @@ function git_pull () {
 # args: 
 #       $1 file_or_dir
 function backup () {
+  echo BACKUP $1
   cp -r --backup=numbered $1 $DIR_BACKUP/$(basename $1)
-  exit $?
 }
 
 # Loop through files in repo...
 # If file also exists in $HOME, backup and replace.
 # Create symlink
 function link_files () {
-  for f in $(ls -A $DIR_REPO/dotfiles)                  # List files except . and ..
+  for f in  $(ls -A $DIR_REPO/dotfiles)                 # List files except . and ..
     do
     if [ ${f:0:1} == "." ]; then                        # File starts with '.' ?
-        g=$HOME/$(basename $f)
-        if [ -e $g ]; then                              # File exists in $HOME ?
-          backup $HOME/$(basename $f)                   # If so, backup first
+        h=$HOME/$f
+        if [ -e $h ]; then                              # File exists in $HOME ?
+          backup $HOME/$f
           if [ $? -eq 0 ]; then
-            ln --force $DIR_REPO/dotfiles/$f $HOME/$f
+            ln -s --force $DIR_REPO/dotfiles/$f $HOME/$f
+            echo LINKED $HOME/$f
           else
-            echo "failed to backup ~/$f"
+            echo "Failed to backup ~/$f"
           fi
         else
-          ln --force $DIR_REPO/dotfiles/$f $HOME/$f
+          ln -s --force $DIR_REPO/dotfiles/$f $HOME/$f
+          echo LINKED $HOME/$f
         fi
     fi
   done
