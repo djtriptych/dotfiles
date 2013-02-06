@@ -5,15 +5,17 @@
 # 
 # Format: 
 #   - Header titles start with two octothorpes '##', are in title case, end with
-#   no period, and are preceded by two blank lines.
-#   - Header titles are immediately followed by 80 dashes.
+#   no period, and are preceded by four blank lines.
+#   - Header titles are immediately followed by an 80 octothorpe line..
 #   - Cryptic lines should come with a cf. note for more info.
 # 
 ################################################################################
 
 
+
+
 ## Path Stuff
---------------------------------------------------------------------------------
+################################################################################
 # MacPorts Installer addition on 2010-04-14_at_18:28:49: 
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
@@ -24,8 +26,10 @@ export PATH=~/bin:$PATH
 
 
 
+
+
 ## Environment variables
---------------------------------------------------------------------------------
+################################################################################
 
 # When other programs need to launch an editor, it looks here.
 export VISUAL="vim"
@@ -34,7 +38,10 @@ export VISUAL="vim"
 export CLICOLOR=1;
 
 # Enable color in grep
-export GREP_OPTIONS="--color=auto"
+export GREP_OPTIONS="--color=always"
+
+# Enable color in less
+export LESS="-R"
 
 # Set a simple <pwd> $ prompt
 export PS1='\w $ ';
@@ -48,7 +55,7 @@ test -e ~/.python_startup && export PYTHONSTARTUP='~/.python_startup'
 
 
 ## Aliases
---------------------------------------------------------------------------------
+################################################################################
 # -a means include dotfiles; -l means long format
 alias ls='ls -al'
 
@@ -58,8 +65,14 @@ alias info='info --vi-keys'
 
 
 
+## Functions
+################################################################################
+
+
+
+
 ## Imports
---------------------------------------------------------------------------------
+################################################################################
 # VirtualEnv
 ve=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 test -e ve && source ve
