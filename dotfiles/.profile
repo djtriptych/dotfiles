@@ -57,7 +57,7 @@ test -e ~/.python_startup && export PYTHONSTARTUP='~/.python_startup'
 ## Aliases
 ################################################################################
 # -a means include dotfiles; -l means long format
-alias ls='ls -al'
+alias ls='ls -al --color=auto'
 
 # fix info's horrible keybindings.
 alias info='info --vi-keys'
@@ -77,3 +77,8 @@ alias info='info --vi-keys'
 ve=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 test -e ve && source ve
 unset ve
+
+# export TERM="xterm-256color"
+# export TERM="rxvt-unicode-256color"
+
+echo Loaded Profile
