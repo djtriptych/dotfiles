@@ -1,5 +1,4 @@
-filetype on
-syntax on
+syntax enable
 
 set autoindent
 set bg=dark
@@ -17,14 +16,14 @@ set termencoding=utf-8
 set textwidth=80
 set wrap
 
-if $COLORTERM == 'gnome-terminal'
-  set t_Co=256
-endif
 
 " Install pathogen
 execute pathogen#infect()
 
 " Solarized
+set t_Co=16
+set background=dark
+let g:solarized_bold=0
 colorscheme solarized
 
 " Extension -> filetype map
@@ -41,10 +40,31 @@ let python_highlight_all = 1
 " Highlight trailing whitespace.
 set list
 set listchars=tab:\ \ ,trail:·
-hi SpecialKey ctermfg=white ctermbg=red
+
+highlight SpecialKey ctermfg=white ctermbg=red
 
 " Know what's cool? Italic comments.
-highlight Comment cterm=italic
+highlight Comment cterm=italic ctermfg=10
+
+" Know what's not cool. Special rendering of HTML CDATA
+let html_no_rendering=1
+
+
+" Attempting to get html syntax highlighting working with vim/solarized/rxvt.
+
+" Bit of trickery: the match includes the leading space, because otherwise it
+" loses to the data htmlArg, which is defined as a keyword.
+syn match ngAttr containedin=htmlTag " \(data[a-zA-z-]\+\>\)"
+
+hi! htmlTag ctermfg=12
+hi! htmlEndTag ctermfg=12
+hi! htmlTagN ctermfg=white
+hi! htmlTagName ctermfg=3
+hi! htmlSpecialTagName ctermfg=5
+hi! htmlArg ctermfg=4
+hi! ngAttr ctermfg=red
+
+hi! Visual term=none cterm=italic ctermfg=none ctermbg=0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -52,3 +72,7 @@ highlight Comment cterm=italic
 
 " Center screen at cursor with space bar
 nmap <space> zz
+" Previous tab
+map <F10> :tabp<CR>
+" Next tab
+map <F11> :tabn<CR>
