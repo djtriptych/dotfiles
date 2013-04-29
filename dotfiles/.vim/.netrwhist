@@ -1,9 +1,3 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =7
-let g:netrw_dirhist_1='/usr/local/google/home/kenan/.vim'
-let g:netrw_dirhist_2='/usr/local/google/home/kenan'
-let g:netrw_dirhist_3='/usr/local/google/home/kenan/git/dfa7fe/google3/java/com/google/ads/xfa/site/app/modules'
-let g:netrw_dirhist_4='/usr/local/google/home/kenan/repos/tmux'
-let g:netrw_dirhist_5='/usr/local/google/home/kenan/bin'
-let g:netrw_dirhist_6='/usr/local/google/home/kenan'
-let g:netrw_dirhist_7='/usr/local/google/home/kenan/bin'
+let g:netrw_dirhist_cnt =1
+let g:netrw_dirhist_1='/usr/local/google/home/kenan/Documents/links/static/style'

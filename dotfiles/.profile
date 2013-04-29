@@ -1,29 +1,26 @@
 ################################################################################
 # Mac OSX bash profile.
-# 
+#
 # Author: Kenan Banks <github.com/djtriptych>
-# 
-# Format: 
+#
+# Format:
 #   - Header titles start with two octothorpes '##', are in title case, end with
 #   no period, and are preceded by four blank lines.
 #   - Header titles are immediately followed by an 80 octothorpe line..
 #   - Cryptic lines should come with a cf. note for more info.
-# 
+#
 ################################################################################
-
 
 
 
 ## Path Stuff
 ################################################################################
-# MacPorts Installer addition on 2010-04-14_at_18:28:49: 
+# MacPorts Installer addition on 2010-04-14_at_18:28:49:
 export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Adding scripts I wrote.
-export PATH=~/bin:$PATH
-
-
+export PATH=~/bin:~/bin/scripts:$PATH
 
 
 
@@ -46,6 +43,9 @@ export LESS="-R"
 # Set a simple <pwd> $ prompt
 export PS1='\w $ ';
 
+# Directory shortcut names ftw :)
+export CDPATH=~/symlinks
+
 # This file is executed before starting an interactive session
 # It's NOT executed when there is a file argument to python -i
 # cf. man python2.7
@@ -65,6 +65,14 @@ alias info='info --vi-keys'
 
 
 
+## Options
+################################################################################
+
+# Navigate & edit command line with vim keystrokes. Fuck yes.
+set -o vi
+
+
+
 ## Functions
 ################################################################################
 
@@ -80,5 +88,9 @@ unset ve
 
 # export TERM="xterm-256color"
 # export TERM="rxvt-unicode-256color"
+export G3DIR=/usr/local/google/home/kenan/git/dfa7fe/google3
+export DFA=java/com/google/ads/xfa/site
+alias cdd='cd $G3DIR/$DFA'
+source $G3DIR/$DFA/.bash-helpers
 
-echo Loaded Profile
+

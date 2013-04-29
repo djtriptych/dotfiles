@@ -9,9 +9,10 @@ set fileformat=unix
 set ignorecase
 set incsearch
 set nohls
+set number
 set ruler
-set shiftwidth=4
-set tabstop=4
+set shiftwidth=2
+set tabstop=2
 set termencoding=utf-8
 set textwidth=80
 set wrap
@@ -30,9 +31,16 @@ colorscheme solarized
 autocmd BufNewFile,BufRead *.less     set filetype=less
 autocmd BufNewFile,BufRead *.tpl      set filetype=jinja
 autocmd BufNewFile,BufRead *.mk       set filetype=markdown
+autocmd BufNewFile,BufRead *.i3       set filetype=i3
+autocmd BufNewFile,BufRead *.tmux     set filetype=tmux
+autocmd BufNewFile,BufRead *.json     set filetype=json
+autocmd BufNewFile,BufRead *.less     set filetype=less
 
 " Specific files -> filetype map
 autocmd BufNewFile,BufRead .tmux.conf set filetype=tmux
+" TODO: .i3/config file takes type i3
+
+set grepprg=ack
 
 " Highlight all the (Python) things.
 let python_highlight_all = 1
@@ -64,7 +72,7 @@ hi! htmlSpecialTagName ctermfg=5
 hi! htmlArg ctermfg=4
 hi! ngAttr ctermfg=red
 
-hi! Visual term=none cterm=italic ctermfg=none ctermbg=0
+hi! Visual term=none cterm=italic ctermfg=7 ctermbg=5
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -76,3 +84,5 @@ nmap <space> zz
 map <F10> :tabp<CR>
 " Next tab
 map <F11> :tabn<CR>
+" CommandT file window
+nmap <F12> :CommandT<CR>

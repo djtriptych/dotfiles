@@ -1,0 +1,196 @@
+# An opinionated i3 config file (v4)
+#
+# Author: kenan@google.com
+#
+# Opinions:
+#   - vim is the best editor.
+#   - vim has the best keybindings.
+#   - solarized is the best colorscheme.
+#   - mice are evil.
+#   - cursor keys are only slightly less evil.
+#   - use only a few tools, but know them well.
+
+# Font for window titles. Will also be used by the bar unless a different font
+# is used in the bar {} block below. ISO 10646 = Unicode
+# font -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+font pango:Inconsolata 10
+
+# The font above is very space-efficient, that is, it looks good, sharp and
+# clear in small sizes. However, if you need a lot of unicode glyphs or
+# right-to-left text rendering, you should instead use pango for rendering and
+# chose a FreeType font, such as:
+# font pango:DejaVu Sans Mono 10
+
+# use Mouse+Mod1 to drag floating windows to their wanted position
+floating_modifier Mod1
+
+# locking hotkey
+bindsym Mod1+Shift+BackSpace exec "i3lock -i ~/Pictures/lock-2560x1600.png"
+
+# start a terminal
+bindsym Mod1+Return exec i3-sensible-terminal
+
+# launch i3-msg
+bindsym Mod1+i exec i3-input &
+
+# kill focused window
+bindsym Mod1+Shift+q kill
+
+# start dmenu (a program launcher)
+bindsym Mod1+d exec dmenu_run
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym Mod1+d exec --no-startup-id i3-dmenu-desktop
+
+focus_follows_mouse no
+
+# change window focus
+bindsym Mod1+h focus left
+bindsym Mod1+j focus down
+bindsym Mod1+k focus up
+bindsym Mod1+l focus right
+
+# move focused window (vim key bindings)
+bindsym Mod1+Shift+h move left
+bindsym Mod1+Shift+j move down
+bindsym Mod1+Shift+k move up
+bindsym Mod1+Shift+l move right
+
+bindsym Mod1+Shift+Right resize grow width
+bindsym Mod1+Shift+Left resize shrink width
+bindsym Mod1+Shift+Up resize grow height
+bindsym Mod1+Shift+Down resize shrink height
+
+# new window styles
+new_window 1pixel # no borders
+hide_edge_borders both
+
+# Solarized colors
+set $base0   #839496
+set $base1   #93a1a1
+set $base2   #eee8d5
+set $base3   #fdf6e3
+set $base03  #002b36
+set $base02  #073642
+set $base01  #586e75
+set $base00  #657b83
+set $yellow  #b58900
+set $orange  #cb4b16
+set $red     #dc322f
+set $magenta #d33682
+set $violet  #6c71c4
+set $blue    #268bd2
+set $cyan    #2aa198
+set $green   #859900
+set $white   #ffffff
+set $black   #000000
+
+# state                 border  bckgrnd   text    indicator
+client.focused          $base02  $green   $base02 $magenta
+client.focused_inactive $base02  $base02  $base01 $magenta
+client.unfocused        $base02  $base02  $base01 $magenta
+client.urgent           $base02  $base02  $red    $magenta
+
+# split in horizontal orientation
+bindsym Mod1+h split h
+
+# split in vertical orientation
+bindsym Mod1+v split v
+
+# enter fullscreen mode for the focused container
+bindsym Mod1+f fullscreen
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym Mod1+s layout stacking
+bindsym Mod1+w layout tabbed
+bindsym Mod1+e layout toggle split
+
+# toggle tiling / floating
+bindsym Mod1+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym Mod1+space focus mode_toggle
+
+# focus the parent container
+bindsym Mod1+a focus parent
+
+# Set all floating windows to be just less than 1/4 screen.
+floating_minimum_size 900 x 750
+floating_maximum_size 900 x 750
+
+# focus the child container
+#bindsym Mod1+d focus child
+
+# switch to workspace
+bindsym Mod1+1 workspace 1: dev
+bindsym Mod1+2 workspace 2: test
+bindsym Mod1+3 workspace 3: google
+bindsym Mod1+4 workspace 4: personal
+bindsym Mod1+5 workspace 5: media
+bindsym Mod1+6 workspace 6: topic
+bindsym Mod1+7 workspace 7
+bindsym Mod1+8 workspace 8
+bindsym Mod1+9 workspace 9
+bindsym Mod1+0 workspace 10
+
+# move focused container to workspace
+bindsym Mod1+Shift+1 move container to workspace 1: dev
+bindsym Mod1+Shift+2 move container to workspace 2: test
+bindsym Mod1+Shift+3 move container to workspace 3: google
+bindsym Mod1+Shift+4 move container to workspace 4: personal
+bindsym Mod1+Shift+5 move container to workspace 5: media
+bindsym Mod1+Shift+6 move container to workspace 6: topic
+bindsym Mod1+Shift+7 move container to workspace 7
+bindsym Mod1+Shift+8 move container to workspace 8
+bindsym Mod1+Shift+9 move container to workspace 9
+bindsym Mod1+Shift+0 move container to workspace 10
+
+# reload the configuration file
+bindsym Mod1+Shift+c reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Currently disabled to prevent accidental invokation
+#    (just use i3-msg if you really need to do this.
+#bindsym Mod1+Shift+r restart
+
+# exit i3 (logs you out of your X session)
+bindsym Mod1+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+  # These bindings trigger as soon as you enter the resize mode
+
+  # Pressing left will shrink the window’s width.
+  # Pressing right will grow the window’s width.
+  # Pressing up will shrink the window’s height.
+  # Pressing down will grow the window’s height.
+  bindsym h           resize shrink width 10 px or 10 ppt
+  bindsym j           resize grow height 10 px or 10 ppt
+  bindsym k           resize shrink height 10 px or 10 ppt
+  bindsym l           resize grow width 10 px or 10 ppt
+
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym Mod1+r mode "resize"
+
+# Start i3bar to display a workspace bar (plus the system information i3status
+# finds out, if available)
+bar {
+    position top # bottom is for tmux
+    status_command dfastatus
+    font pango: Inconsolata 10
+    tray_output none
+    colors {
+        background $base03
+        statusline $base2
+        # status           border    bckgrnd   text
+        focused_workspace  $violet   $violet   $base2
+        active_workspace   $violet   $violet   $base1
+        inactive_workspace $base03   $base03   $base1
+        urgent_workspace   $red      $red      $base3
+    }
+}

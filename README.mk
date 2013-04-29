@@ -7,7 +7,7 @@ FEATURES:
           symbolic links to the git repo.
 
 
-SYSTEM DIRECTORIES: 
+SYSTEM DIRECTORIES:
 
   - $HOME/.dotfiles
     The main dotfiles dir. Also a git repo: new changes are put here.
@@ -19,7 +19,7 @@ SYSTEM DIRECTORIES:
   - $HOME/.dotfiles/backup
     When conflict are detected, we save copies here. This is also a git repo
     which is updated on every backup.
-    
+
 
 COMMANDS:
 
@@ -27,16 +27,17 @@ COMMANDS:
 
 
 PROBLEMS:
-  
+
   Make sure we dont clobber anything, ever.
         - Backup everything with cp --backup=t to create numbered backups.
 
   How to include hostname-specific settings?
         - /hostnames dir in repo. We can then test for machine name and source
           them in as part of a build process.
-  
+
+
 COMMON TASKS:
-  
+
   - Adding new dotfiles to repo.
     1. Copy new dotfile to repo.
     2. Run dotsync
