@@ -54,7 +54,7 @@ test -e ~/.python_startup && export PYTHONSTARTUP='~/.python_startup'
 
 
 
-## Aliases
+## aliases
 ################################################################################
 # -a means include dotfiles; -l means long format
 alias ls='ls -al --color=auto'
@@ -70,6 +70,22 @@ alias info='info --vi-keys'
 
 # Navigate & edit command line with vim keystrokes. Fuck yes.
 set -o vi
+
+if [[ $DISPLAY ]]; then
+# Map caps lock key to ctrl
+setxkbmap -option ctrl:nocaps
+fi
+
+# Raise keyboard rate and lower interval?
+
+
+
+
+## Python
+################################################################################
+# Add local modules to search path.
+PYTHONPATH=$HOME/bin
+
 
 
 
@@ -90,7 +106,12 @@ unset ve
 # export TERM="rxvt-unicode-256color"
 export G3DIR=/usr/local/google/home/kenan/git/dfa7fe/google3
 export DFA=java/com/google/ads/xfa/site
+export XFA=java/com/google/ads/xfa
 alias cdd='cd $G3DIR/$DFA'
 source $G3DIR/$DFA/.bash-helpers
+
+# Maintain a branch to constantly track master
+export XFA_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3/$XFA
+export G3DIR_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3
 
 
