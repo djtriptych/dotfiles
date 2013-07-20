@@ -1,0 +1,12 @@
+[submodule "dotfiles/.vim/bundle/vim-jasmine"]
+	path = dotfiles/.vim/bundle/vim-jasmine
+	url = git://github.com/djtriptych/jasmine.vim.git
+[submodule "dotfiles/.vim/bundle/vim-json"]
+	path = dotfiles/.vim/bundle/vim-json
+	url = git://github.com/elzr/vim-json.git
+[submodule "dotfiles/.vim/bundle/vim-less"]
+	path = dotfiles/.vim/bundle/vim-less
+	url = git://github.com/groenewege/vim-less
+[submodule "dotfiles/.vim/bundle/vim-markdown"]
+	path = dotfiles/.vim/bundle/vim-markdown
+	url = git://github.com/tpope/vim-markdown.git
