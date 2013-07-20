@@ -41,7 +41,8 @@ export GREP_OPTIONS="--color=always"
 export LESS="-R"
 
 # Set a simple <pwd> $ prompt
-export PS1='\w $ ';
+# export PS1='\w  ⚡';
+export PS1='\[\033[00;38;5;4m\]\w \[\033[01;37m\]⚡ \[\033[00m\]'
 
 # Directory shortcut names ftw :)
 export CDPATH=~/symlinks

@@ -1,4 +1,7 @@
 
+" HTML wraps at 100 characters.
+set textwidth=100
+
 " Disable silly highlighting of HTML CDATA sections.
 let html_no_rendering=1
 

@@ -1,5 +1,6 @@
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"
 " .vimrc
 " ------
 "   An opinionated .vimrc by Kenan Banks <http://github.com/djtriptych>
@@ -15,15 +16,13 @@
 "   - https://github.com/skwp/dotfiles/blob/master/vimrc
 "
 " TODO: ctags.
-" TODO: grepprg setup.
-" TODO: Tag navigation.
-" TODO: Snippets plugin.
+" TODO: Tab navigation.
 " TODO: Sensible makeprg defaults.
-" TODO: Sensible vimgrep defaults.
 " TODO: Filetype-specific textwidth options.
 " TODO: Project-specific format/lint options.
 " TODO: Store sensitive options that cannot be made public.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -100,22 +99,20 @@ set background=dark
 highlight! SpecialKey ctermfg=white ctermbg=red
 " Italicized comments on supported terminals (e.g. urxvt)
 highlight! Comment cterm=italic ctermfg=10
-" Highlight selected text with obnoxious background.
-highlight! Visual term=none cterm=italic ctermfg=7 ctermbg=5
-
+" Highlight selected text with black background.
+highlight! Visual term=none cterm=none ctermfg=none ctermbg=16
 " Subtle vertical split.
 highlight! VertSplit ctermbg=8 ctermfg=13
 " Subtle line numbers
 highlight! LineNr ctermbg=8 ctermfg=10
-highlight! MatchParen ctermbg=8 ctermfg=15
+" Highlight matching parens in bold white
+highlight! MatchParen cterm=bold ctermbg=8 ctermfg=15
 
 " Set vertical split char to full pipe.
 set fillchars=vert:│,fold:-
 
-
 " Highlight all the Python things.
 let python_highlight_all=1
-
 
 
 
@@ -161,7 +158,7 @@ set undofile
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Pathogen.
+" Pathogen & Plugins
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Install pathogen for package management.
 " cf. https://github.com/tpope/vim-pathogen
@@ -214,9 +211,9 @@ command! -range -nargs=1 Snip <line1>,<line2>call Snip(<f-args>)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Previous tab
-map <F10> :tabp<CR>
+map <S-TAB> :tabp<CR>
 " Next tab
-map <F11> :tabn<CR>
+map <TAB> :tabn<CR>
 " CommandT file window
 nmap <F12> :CommandT<CR>
 

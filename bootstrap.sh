@@ -36,7 +36,7 @@ function git_pull () {
 }
 
 # Backup dotfiles before replacing
-# args: 
+# args:
 #       $1 file_or_dir
 function backup () {
   echo BACKUP $1
