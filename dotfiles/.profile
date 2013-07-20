@@ -12,6 +12,11 @@
 ################################################################################
 
 
+## Top Imports
+# Add git bash helpers.
+source ~/.git-prompt.sh
+
+
 
 ## Path Stuff
 ################################################################################
@@ -40,11 +45,6 @@ export GREP_OPTIONS="--color=always"
 # Enable color in less
 export LESS="-R"
 
-# Set a simple <pwd> $ prompt
-# export PS1='\w  ⚡';
-# cf. http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/
-# cf. `max rxvt` for escape sequences.
-export PS1='\[\033[00;38;5;4m\]\w \[\033[01;37m\]⚡ \[\033[00m\]'
 
 # Directory shortcut names ftw :)
 export CDPATH=~/symlinks
@@ -57,7 +57,42 @@ test -e ~/.python_startup && export PYTHONSTARTUP='~/.python_startup'
 
 
 
-## aliases
+## Command Prompt.
+################################################################################
+# cf. http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/
+# cf. `max rxvt` for escape sequences.
+
+# Abbreviate long host names.
+# Args:
+#   $1 longhostname
+# Returns:
+#   shorter hostname if abbreviation is defined, else the long name.
+function __host_abbr() {
+  declare -A hosts
+  hosts[kenangoobuntu]="google"
+  hosts[bedstuy]="linode"
+
+  if [[ -z "${hosts[$1]}" ]]
+  then
+    echo -n $1
+    return 1
+  fi
+
+  echo -n ${hosts[$1]}
+  return 0
+}
+
+export PS1='\033[0;38;5;13m\u\
+\033[0;38;5;13m@\
+\033[0;38;5;13m$( __host_abbr \h ):\
+\033[0;38;5;6m\w\
+\033[1;38;5;2m$(__git_ps1) \
+\033[0;38;5;1m♥ \033[00m'
+
+
+
+
+## Aliases
 ################################################################################
 # -a means include dotfiles; -l means long format
 alias ls='ls -al --color=auto'
@@ -117,4 +152,3 @@ source $G3DIR/$DFA/.bash-helpers
 export XFA_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3/$XFA
 export G3DIR_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3
 
-source ~/.git-prompt.sh
