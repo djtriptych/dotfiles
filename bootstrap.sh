@@ -26,6 +26,8 @@ function git_pull () {
   else
     pushd $DIR_REPO > /dev/null
     git pull
+    git submodule init
+    git submodule update
     pull_result=$?
     popd
     if [ $pull_result -ne 0 ]; then 
@@ -35,8 +37,9 @@ function git_pull () {
   fi
 }
 
-# Backup dotfiles before replacing
-# args:
+# Backup dotfiles before replacing.
+#
+# Arguments:
 #       $1 file_or_dir
 function backup () {
   echo BACKUP $1
