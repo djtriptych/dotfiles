@@ -42,6 +42,8 @@ export LESS="-R"
 
 # Set a simple <pwd> $ prompt
 # export PS1='\w  ⚡';
+# cf. http://www.tldp.org/HOWTO/Bash-Prompt-HOWTO/
+# cf. `max rxvt` for escape sequences.
 export PS1='\[\033[00;38;5;4m\]\w \[\033[01;37m\]⚡ \[\033[00m\]'
 
 # Directory shortcut names ftw :)
@@ -115,4 +117,4 @@ source $G3DIR/$DFA/.bash-helpers
 export XFA_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3/$XFA
 export G3DIR_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3
 
-
+source ~/.git-prompt.sh
