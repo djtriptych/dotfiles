@@ -1,0 +1,1 @@
+/root/.dotfiles/repo/dotfiles/.i3
