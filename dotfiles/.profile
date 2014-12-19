@@ -95,7 +95,7 @@ export PS1='\033[0;38;5;13m\u\
 ## Aliases
 ################################################################################
 # -a means include dotfiles; -l means long format
-alias ls='ls -al --color=auto'
+alias ls='ls -alG'
 
 # fix info's horrible keybindings.
 alias info='info --vi-keys'
@@ -152,3 +152,5 @@ source $G3DIR/$DFA/.bash-helpers
 export XFA_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3/$XFA
 export G3DIR_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3
 
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
