@@ -1,6 +1,2 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =4
-let g:netrw_dirhist_1='/usr/local/google/home/kenan/git/dfa7fe/google3/java/com/google/ads/xfa/site/test'
-let g:netrw_dirhist_2='/usr/local/google/home/kenan/git/dfa7fe/google3/java/com/google/ads/xfa/site'
-let g:netrw_dirhist_3='/usr/local/google/home/kenan/git/dfa7fe/google3/java/com/google/ads/xfa/site/app'
-let g:netrw_dirhist_4='/usr/local/google/home/kenan/git/dfa7fe/google3/java/com/google/ads/xfa/site/app/directives'
+let g:netrw_dirhist_cnt =0
