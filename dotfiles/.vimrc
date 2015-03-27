@@ -101,7 +101,7 @@ set background=dark
 " Highlights trailing whitespace.
 highlight! SpecialKey ctermfg=white ctermbg=red
 " Italicized comments on supported terminals (e.g. urxvt)
-highlight! Comment cterm=italic ctermfg=10
+highlight! Comment ctermfg=10
 " Literal strings should look out of place in most code.
 highlight! String ctermfg=red
 " Highlight selected text with black background.
@@ -163,6 +163,9 @@ set formatoptions=croqt
 " We have git and tree undo. Stop using swap files.
 set noswapfile
 
+" Tree-style listings in file browser.
+let g:netrw_liststyle=3
+
 " Persistent Undo. Keep undos between vim sessions.
 "silent !mkdir ~/.vim/backups > /dev/null 2>&1
 "set undodir=~/.vim/backups
@@ -194,6 +197,7 @@ autocmd BufNewFile,BufRead *.mk,*.markdown,*.md set filetype=markdown
 
 
 autocmd Filetype markdown setlocal textwidth=80
+autocmd Filetype python setlocal shiftwidth=2
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
