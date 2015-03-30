@@ -98,7 +98,7 @@ set background=dark
 " Highlights trailing whitespace.
 highlight! SpecialKey ctermfg=white ctermbg=red
 " Italicized comments on supported terminals (e.g. urxvt)
-highlight! Comment cterm=italic ctermfg=10
+" highlight! Comment cterm=italic ctermfg=10
 " Highlight selected text with black background.
 highlight! Visual term=none cterm=none ctermfg=none ctermbg=16
 " Subtle vertical split.
