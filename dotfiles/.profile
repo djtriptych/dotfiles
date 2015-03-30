@@ -1,5 +1,5 @@
 ################################################################################
-# Mac OSX bash profile.
+# Bash profile.
 #
 # Author: Kenan Banks <github.com/djtriptych>
 #
@@ -12,16 +12,24 @@
 ################################################################################
 
 
-## Top Imports
-# Add git bash helpers.
-source ~/.git-prompt.sh
+## Top-level Imports
+
+# Show git branch in bash prompt :)
+if [ -f ~/.git-prompt.sh ]; then
+  . ~/.git-prompt.sh
+fi
+
+# Autocomplete long ass git branch names.
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 
 
 ## Path Stuff
 ################################################################################
 # MacPorts Installer addition on 2010-04-14_at_18:28:49:
-export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:~/go/bin:/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Adding scripts I wrote.
@@ -82,12 +90,13 @@ function __host_abbr() {
   return 0
 }
 
-export PS1='\033[0;38;5;13m\u\
-\033[0;38;5;13m@\
-\033[0;38;5;13m$( __host_abbr \h ):\
-\033[0;38;5;6m\w\
-\033[1;38;5;2m$(__git_ps1) \
-\033[0;38;5;1m♥ \033[00m'
+export PS1='\[\e[0;38;5;13m\]\u\
+\[\e[0;38;5;13m\]@\
+\[\e[0;38;5;13m\]$( __host_abbr \h ):\
+\[\e[0;38;5;6m\]\w\
+\[\e[1;38;5;2m\]$(__git_ps1) \
+\[\e[0;38;5;1m\]$ \[\e[0m\]'
+
 
 
 
@@ -139,16 +148,3 @@ PYTHONPATH=$HOME/bin
 ve=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 test -e ve && source ve
 unset ve
-
-# export TERM="xterm-256color"
-# export TERM="rxvt-unicode-256color"
-export G3DIR=/usr/local/google/home/kenan/git/dfa7fe/google3
-export DFA=java/com/google/ads/xfa/site
-export XFA=java/com/google/ads/xfa
-alias cdd='cd $G3DIR/$DFA'
-source $G3DIR/$DFA/.bash-helpers
-
-# Maintain a branch to constantly track master
-export XFA_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3/$XFA
-export G3DIR_MASTER=/usr/local/google/home/kenan/git/dfa-master/google3
-
