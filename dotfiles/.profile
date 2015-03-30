@@ -104,7 +104,7 @@ export PS1='\[\e[0;38;5;13m\]\u\
 ## Aliases
 ################################################################################
 # -a means include dotfiles; -l means long format
-alias ls='ls -al --color=auto'
+alias ls='ls -alG'
 
 # fix info's horrible keybindings.
 alias info='info --vi-keys'
@@ -130,10 +130,23 @@ fi
 
 ## Python
 ################################################################################
+
 # Add local modules to search path.
 PYTHONPATH=$HOME/bin
 
 
+
+
+## Go
+################################################################################
+
+export GOROOT=$HOME/go
+export GOPATH=$HOME/gocode
+
+
+
+## Trip and Chase
+export MIX=$HOME/repos/tripandchase/mix
 
 
 ## Functions
@@ -148,3 +161,9 @@ PYTHONPATH=$HOME/bin
 ve=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 test -e ve && source ve
 unset ve
+
+" source ~/.virtualenvs/hx/bin/activate
+export TERM=rxvt-unicode
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"

@@ -1,4 +1,3 @@
-
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "
 " .vimrc
@@ -16,11 +15,13 @@
 "   - https://github.com/skwp/dotfiles/blob/master/vimrc
 "
 " TODO: ctags.
-" TODO: Tab navigation.
 " TODO: Sensible makeprg defaults.
-" TODO: Filetype-specific textwidth options.
 " TODO: Project-specific format/lint options.
 " TODO: Store sensitive options that cannot be made public.
+"
+" TODONE:
+"   Tab navigation.
+"   Filetype-specific textwidth options.
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -33,7 +34,9 @@ set autoindent
 " Copy indentation characters from current line for new lines.
 set copyindent
 " Show tabs as two spaces, trailing whitespace as a dot.
-set list listchars=tab:\ \ ,trail:·
+" set list listchars=tab:\ \ ,trail:+
+
+
 " Use spaces in place of <TAB> characters.
 set expandtab
 " Round indent to multiple of shiftwidth.
@@ -99,6 +102,9 @@ set background=dark
 highlight! SpecialKey ctermfg=white ctermbg=red
 " Italicized comments on supported terminals (e.g. urxvt)
 " highlight! Comment cterm=italic ctermfg=10
+highlight! Comment ctermfg=10
+" Literal strings should look out of place in most code.
+highlight! String ctermfg=red
 " Highlight selected text with black background.
 highlight! Visual term=none cterm=none ctermfg=none ctermbg=16
 " Subtle vertical split.
@@ -114,6 +120,13 @@ set fillchars=vert:│,fold:-
 " Highlight all the Python things.
 let python_highlight_all=1
 
+" Tell vim-go not to try to download mercurial when starting vim for fuck's
+" sake.
+let g:go_disable_autoinstall=1
+
+" Disable go fmt errors. Without this, vim-go prints error messages followed by
+" the entire file. Not terribly useful.
+let g:go_fmt_autosave = 0
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -148,13 +161,16 @@ set wrap
 " t  Wrap text.
 set formatoptions=croqt
 
-" Stop using swap files.
+" We have git and tree undo. Stop using swap files.
 set noswapfile
 
-" Persistent Undo.
-silent !mkdir ~/.vim/backups > /dev/null 2>&1
-set undodir=~/.vim/backups
-set undofile
+" Tree-style listings in file browser.
+let g:netrw_liststyle=3
+
+" Persistent Undo. Keep undos between vim sessions.
+"silent !mkdir ~/.vim/backups > /dev/null 2>&1
+"set undodir=~/.vim/backups
+"set undofile
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -173,23 +189,21 @@ filetype indent on
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 autocmd BufNewFile,BufRead *.less     set filetype=less
 autocmd BufNewFile,BufRead *.tpl      set filetype=jinja
-autocmd BufNewFile,BufRead *.mk       set filetype=markdown
 autocmd BufNewFile,BufRead *.i3       set filetype=i3
 autocmd BufNewFile,BufRead *.tmux     set filetype=tmux
 autocmd BufNewFile,BufRead *.json     set filetype=json
 autocmd BufNewFile,BufRead *.less     set filetype=less
 autocmd BufNewFile,BufRead .tmux.conf set filetype=tmux
+autocmd BufNewFile,BufRead *.mk,*.markdown,*.md set filetype=markdown
 
+
+autocmd Filetype markdown setlocal textwidth=80
+autocmd Filetype python setlocal shiftwidth=2
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Abbreviations
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Jasmine testing.
-ab beforeEach beforeEach(function() {<CR>});<esc>O<TAB>
-ab afterEach afterEach(function() {<CR>});<esc>O<TAB>
-ab it( it('should ', function() {<CR>});<esc>O<TAB><UP><ESC>f<SPACE>i
-ab describe( describe('', function() {<CR>});<esc>O<TAB><UP><ESC>wlli
 
 
 
@@ -222,3 +236,5 @@ nmap <C-P> :bp<CR>
 nmap <C-N> :bn<CR>
 nmap <C-D> :bd<CR>
 
+" Make.
+nmap <C-K> :make<CR>
