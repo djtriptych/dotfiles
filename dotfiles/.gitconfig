@@ -11,3 +11,5 @@
    pager = true
 [diff]
 	tool = vimdiff
+[push]
+	default = matching
