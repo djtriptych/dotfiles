@@ -80,6 +80,7 @@ less:ext:less
 --type-add=go:ext:go
 --type-add=groovy:ext:groovy,gtmpl,gpp,grunit,gradle
 --type-add=haskell:ext:hs,lhs
+--type-add=handlebars:ext:hbs
 --type-add=html:ext:htm,html
 --type-add=java:ext:java,properties
 --type-add=js:ext:js
@@ -100,6 +101,7 @@ less:ext:less
 --type-add=ruby:is:Rakefile
 --type-add=ruby:firstlinematch:/^#!.*\bruby/
 --type-add=rust:ext:rs
+--type-add=sass:ext:scss,sass
 --type-add=scala:ext:scala
 --type-add=scheme:ext:scm,ss
 --type-add=shell:ext:sh,bash,csh,tcsh,ksh,zsh
