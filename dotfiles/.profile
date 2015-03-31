@@ -15,6 +15,8 @@
 ## Top Imports
 # Add git bash helpers.
 source ~/.git-prompt.sh
+source ~/.git-completion.bash
+
 
 
 
@@ -110,13 +112,6 @@ alias info='info --vi-keys'
 # Navigate & edit command line with vim keystrokes. Fuck yes.
 set -o vi
 
-if [[ $DISPLAY ]]; then
-# Map caps lock key to ctrl
-setxkbmap -option ctrl:nocaps
-fi
-
-# Raise keyboard rate and lower interval?
-
 
 
 
@@ -153,7 +148,7 @@ export MIX=$HOME/repos/tripandchase/mix
 ve=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 test -e ve && source ve
 unset ve
-source ~/.virtualenvs/hx/bin/activate
+# source ~/.virtualenvs/hx/bin/activate
 export TERM=rxvt-unicode
 
 ### Added by the Heroku Toolbelt
