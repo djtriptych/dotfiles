@@ -12,18 +12,24 @@
 ################################################################################
 
 
-## Top Imports
-# Add git bash helpers.
-source ~/.git-prompt.sh
-source ~/.git-completion.bash
+## Top-level Imports
 
+# Show git branch in bash prompt :)
+if [ -f ~/.git-prompt.sh ]; then
+  . ~/.git-prompt.sh
+fi
+
+# Autocomplete long ass git branch names.
+if [ -f ~/.git-completion.bash ]; then
+  . ~/.git-completion.bash
+fi
 
 
 
 ## Path Stuff
 ################################################################################
 # MacPorts Installer addition on 2010-04-14_at_18:28:49:
-export PATH=~/go/bin:/opt/local/bin:/opt/local/sbin:$PATH
+export PATH=~/bin:~/go/bin:/opt/local/bin:/opt/local/sbin:$PATH
 # Finished adapting your PATH environment variable for use with MacPorts.
 
 # Adding scripts I wrote.
@@ -148,7 +154,6 @@ export MIX=$HOME/repos/tripandchase/mix
 ve=/Library/Frameworks/Python.framework/Versions/2.7/bin/virtualenvwrapper.sh
 test -e ve && source ve
 unset ve
-# source ~/.virtualenvs/hx/bin/activate
 export TERM=rxvt-unicode
 
 ### Added by the Heroku Toolbelt

@@ -10,9 +10,9 @@
 URxvt*buffered: true
 URxvt*cursorBlink: true
 URxvt*underlineColor: blue
-URxvt*font: xft:ubuntu mono:pixelsize=14:antialias=true
-URxvt*boldFont: xft:ubuntu mono:style=Bold:pixelsize=14:antialias=true
-URxvt*italicFont: xft:ubuntu mono:style=Italic:pixelsize=12:antialias=true
+URxvt*font: xft:Fantasque Sans Mono:pixelsize=14:antialias=true
+URxvt*boldFont: xft:Fantasque Sans mono:style=Bold:pixelsize=14:antialias=true
+URxvt*italicFont: xft:Fantasque Sans Mono:style=Italic:pixelsize=12:antialias=true
 URxvt*depth: 32
 URxvt*borderless: 1
 URxvt*scrollBar: false

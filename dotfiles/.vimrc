@@ -101,6 +101,7 @@ set background=dark
 " Highlights trailing whitespace.
 highlight! SpecialKey ctermfg=white ctermbg=red
 " Italicized comments on supported terminals (e.g. urxvt)
+" highlight! Comment cterm=italic ctermfg=10
 highlight! Comment ctermfg=10
 " Literal strings should look out of place in most code.
 highlight! String ctermfg=red
