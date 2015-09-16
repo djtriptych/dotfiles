@@ -42,7 +42,7 @@ COMMON TASKS:
 
   - Adding new dotfiles to repo.
     1. Copy new dotfile to repo.
-    2. Run dotsync
+    2. Run bootstrap.sh to create new symlinks.
 
 CONFLICT RESOLUTION:
 
