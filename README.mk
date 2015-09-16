@@ -35,6 +35,8 @@ PROBLEMS:
         - /hostnames dir in repo. We can then test for machine name and source
           them in as part of a build process.
 
+  Storing secrets?
+  			- How do other popular dotfiles repos do this?
 
 COMMON TASKS:
 
